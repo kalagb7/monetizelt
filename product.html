@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Monetizelt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.3em;
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 5px;
+            border-radius: 14px;
+        }
+        .icon-container {
+            display: flex;
+            align-items: center;
+        }
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #007bff; 
+            border-radius: 8px;
+            background-color: white;
+            color: #007bff;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .icon:hover {
+            background-color: #e9f5ff; 
+        }
+        .divider {
+            height: 1px;
+            background-color: #007bff;
+            width: 100%;
+            margin: 0 0 8px 0;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0 0 6px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 10px;
+        }
+        .button-container a {
+            margin: 0 5px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .button-container a i {
+            margin-right: 2px; 
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 13px;
+            padding: 8px 15px;
+            font-size: 0.7em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0055aa;
+        }
+        .footer-button {
+            margin-left: 10px;
+        }
+        .content-container {
+            width: 330px;
+            height: 220px;
+            margin: 10px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #d3d3d3;
+            border: 1px solid #007bff;
+        }
+        .slider {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .video-container {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .swipe-indicator {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 60%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 4px;
+        }
+        .dot.active {
+            background-color: #007bff;
+        }
+        .description {
+            width: 310px;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 13px;
+            border: 1px solid #007bff;
+            text-align: left;
+            margin-top: 0;
+            max-height: 55px; 
+            overflow-y: auto;
+        }
+        .description h3 {
+            margin: 0 0 5px 0;
+            color: #007bff;
+            font-size: 0.9em;
+        }
+        .description p {
+            margin: 0;
+            white-space: normal;
+            word-wrap: break-word;
+            line-height: 1.4;
+            font-size: 0.9em;
+        }
+        .purchase-button-container {
+            display: flex;
+            justify-content: center;
+            margin: 10px auto;
+        }
+        .purchase-button {
+            background-color: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: borderAnimation 2s infinite;
+        }
+        .purchase-button:hover {
+            background-color: #e9f5ff;
+        }
+        @keyframes borderAnimation {
+            0% { border-color: green; }
+            25% { border-color: #007bff; }
+            50% { border-color: green; }
+            75% { border-color: #007bff; }
+            100% { border-color: green; }
+        }
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 123, 255, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .copy-notification.show {
+            opacity: 1;
+        }
+        
+        .product-info {
+            width: 305px;
+            margin: 10px auto;
+            padding: 7px;
+            background-color: #f0f8ff;
+            border-radius: 13px;
+            border: 1px solid #007bff;
+            text-align: center;
+        }
+        
+        .product-title {
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 0.85em;
+        }
+        
+        .product-price {
+            font-size: 1em;
+            margin: 5px 0;
+            color: #007bff;
+        }
+        
+        .product-category {
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+        .purchase-terms {
+            width: 310px;
+            margin: 10px auto 20px;
+            padding: 12px;
+            background-color: #f0f8ff;
+            border-radius: 13px;
+            border: 1px solid #007bff;
+            text-align: left;
+            font-size: 0.9em;
+            color: #555;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .purchase-terms h3 {
+            color: #007bff;
+            font-size: 1em;
+            margin: 0 0 8px 0;
+            text-align: center;
+        }
+        
+        .purchase-terms p {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+        
+        .vendor-info {
+            font-size: 0.80em;
+            color: #666;
+        }
+        
+        .terms-checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #e9f5ff;
+            border-radius: 8px;
+        }
+        
+        .terms-checkbox {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .terms-checkbox-label {
+            font-size: 0.9em;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .purchase-button:disabled {
+            animation: none;
+            background-color: #e0e0e0;
+            border-color: #cccccc;
+            color: #999999;
+            cursor: not-allowed;
+        }
+        
+        .email-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 30px;
+            border: 2px solid #007bff;
+            z-index: 1000;
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .email-modal h3 {
+            color: #007bff;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .email-input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #007bff;
+            border-radius: 15px;
+            font-size: 16px;
+        }
+        
+        .email-submit {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .email-submit:hover {
+            background-color: #0055aa;
+        }
+        
+        .payment-loading {
+            display: none;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .email-result {
+            margin-top: 15px;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .success {
+            color: green;
+        }
+        
+        .error {
+            color: red;
+        }
+        
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        .purchase-success {
+            display: none;
+            width: 310px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 13px;
+            border: 1px solid #4caf50;
+            text-align: center;
+            color: #2e7d32;
+        }
+        
+        .purchase-success h3 {
+            margin-top: 0;
+        }
+        
+        .purchase-success p {
+            margin-bottom: 0;
+        }
+        
+        .purchase-error {
+            display: none;
+            width: 310px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #ffebee;
+            border-radius: 13px;
+            border: 1px solid #f44336;
+            text-align: center;
+            color: #c62828;
+        }
+        
+        .purchase-error h3 {
+            margin-top: 0;
+        }
+        
+        .purchase-error p {
+            margin-bottom: 0;
+        }
+        
+        .skeleton-loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .cover-image-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cover-image-container .placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0e0e0;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .cover-image.loaded {
+            opacity: 1;
+        }
+        
+        .cover-image:not(.loaded) {
+            opacity: 0;
+        }
+        
+        .image-loading-error {
+            color: #d32f2f;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .fullscreen-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007bff;
+            cursor: pointer;
+            z-index: 100;
+            transition: background-color 0.3s;
+        }
+        
+        .fullscreen-icon:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .fullscreen-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .close-fullscreen {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .status-button {
+            background-color: white;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 13px;
+            padding: 8px 15px;
+            font-size: 0.7em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .verification-badge {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background-color: #4caf50;
+            border-radius: 50%;
+            margin-right: 4px;
+            position: relative;
+        }
+        
+        .verification-badge:after {
+            content: '✓';
+            color: white;
+            font-size: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .payment-help {
+            font-size: 0.7em;
+            color: #007bff;
+            margin-top: 7px;
+            text-align: center;
+        }
+        
+        .terms-link {
+            color: #007bff;
+            text-decoration: none;
+            text-align: right;
+            font-size: 0.8em;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .countdown-button {
+            background-color: white;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 13px;
+            padding: 8px 15px;
+            font-size: 0.7em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timer-badge {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background-color: #4caf50;
+            border-radius: 50%;
+            margin-right: 4px;
+            position: relative;
+        }
+
+        .timer-badge:after {
+            content: '⏱️';
+            color: white;
+            font-size: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .product-warning-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .product-warning-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 80%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #dc3545;
+            width: 280px;
+        }
+        
+        .product-warning-icon {
+            color: #dc3545;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .product-warning-title {
+            color: #dc3545;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .product-warning-message {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .product-warning-timer {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .product-warning-close {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 16px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .product-warning-close:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 translate="no">Monetizelt</h1>
+    <div class="icon-container">
+        <a class="icon" id="shareButton">
+            <i class="fas fa-share" style="font-size: 23px;"></i>
+        </a>
+    </div>
+</header>
+
+<div class="divider"></div>
+
+<div class="button-container">
+    <div class="status-button"><span class="verification-badge"></span> Secure</div>
+    <div class="countdown-button"><span class="timer-badge"></span> <span id="countdown-timer">Loading...</span></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="content-container">
+    <div class="slider" id="contentSlider">
+        <div class="slide" id="coverSlide">
+            <div class="cover-image-container">
+                <div class="placeholder skeleton-loading" id="image-placeholder"></div>
+                <img src="" alt="Cover" class="cover-image" id="cover-image" style="opacity: 0;">
+                <div class="fullscreen-icon" id="fullscreen-btn">
+                    <i class="fas fa-expand" style="color: #007bff;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swipe-indicator">
+        <div class="dot active" id="dot1"></div>
+    </div>
+</div>
+
+<div class="product-warning-overlay" id="product-warning-overlay">
+    <div class="product-warning-content">
+        <div class="product-warning-icon">
+            <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <div class="product-warning-title">Content Unavailable</div>
+        <div class="product-warning-message">This product does not exist or has been removed.</div>
+        <div class="product-warning-timer">Redirecting in <span id="redirect-countdown">7</span> seconds...</div>
+        <button class="product-warning-close" id="product-warning-close">OK</button>
+    </div>
+</div>
+
+<div class="fullscreen-overlay" id="fullscreen-overlay">
+    <div class="close-fullscreen" id="close-fullscreen">
+        <i class="fas fa-times"></i>
+    </div>
+    <img src="" alt="Fullscreen Image" class="fullscreen-image" id="fullscreen-image">
+</div>
+
+<div class="product-info" id="product-info">
+    <div class="product-title skeleton-loading" id="product-title" style="height: 20px;"></div>
+    <div class="product-price skeleton-loading" id="product-price" style="height: 25px; width: 60%; margin: 5px auto;"></div>
+</div>
+
+<div class="description">
+    <h3>Description:</h3>
+    <p id="product-description" class="skeleton-loading" style="height: 80px;"></p>
+</div>
+
+<div class="purchase-success" id="purchaseSuccess">
+    <h3><i class="fas fa-check-circle"></i> Purchase Successful!</h3>
+    <p>Thank you for your purchase. An email has been sent to you with access instructions.</p>
+</div>
+
+<div class="purchase-error" id="purchaseError">
+    <h3><i class="fas fa-exclamation-circle"></i> Payment Failed!</h3>
+    <p>Your payment could not be processed. Please try again or contact support.</p>
+</div>
+
+<div class="purchase-button-container">
+    <button class="purchase-button" id="purchaseButton" disabled>
+        Purchase Now
+    </button>
+</div>
+
+<div class="purchase-terms">
+    <h3>-- Time Rule -- </h3>
+    <p>Each content has a limited duration. The countdown shows how much time is left before it disappears.
+        Purchase and watch it before it's gone. </p>
+    
+    <div class="terms-checkbox-container">
+        <input type="checkbox" id="termsCheckbox" class="terms-checkbox">
+        <label for="termsCheckbox" class="terms-checkbox-label">I accept the purchase terms below</label>
+    </div>
+    <a href="terms--.html" class="terms-link">See terms</a>
+</div>
+
+<div class="modal-overlay" id="modalOverlay"></div>
+<div class="email-modal" id="emailModal">
+    <h3>Enter Your Email</h3>
+    <p>We'll send the access instructions to this email after purchase.</p>
+    <input type="email" class="email-input" id="emailInput" placeholder="Your email address">
+    <div class="email-result" id="emailResult"></div>
+    <button class="email-submit" id="emailSubmit">Continue to Payment</button>
+    <!-- Removed the "Pay quickly by card..." helper text as requested -->
+    <div class="payment-loading" id="paymentLoading">
+        <div class="loader"></div>
+        <p>Processing payment...</p>
+    </div>
+</div>
+
+<div class="copy-notification" id="shareNotification">Link shared successfully!</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+<script>
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAF4I7E6-_z8y_8n8P35zyKbh9WOEtIzMQ",
+        authDomain: "monetizelt-b235d.firebaseapp.com",
+        databaseURL: "https://monetizelt-b235d-default-rtdb.firebaseio.com",
+        projectId: "monetizelt-b235d",
+        storageBucket: "monetizelt-b235d.firebasestorage.app",
+        messagingSenderId: "1040211471009",
+        appId: "1:1040211471009:web:321898c7bdca6258ce9ee0",
+        measurementId: "G-5NWKR1E9VY"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('contentSlider');
+        const dot1 = document.getElementById('dot1');
+        const shareButton = document.getElementById('shareButton');
+        const shareNotification = document.getElementById('shareNotification');
+        const purchaseButton = document.getElementById('purchaseButton');
+        const coverImage = document.getElementById('cover-image');
+        const imagePlaceholder = document.getElementById('image-placeholder');
+        const productDescription = document.getElementById('product-description');
+        const productTitle = document.getElementById('product-title');
+        const productPrice = document.getElementById('product-price');
+        const termsCheckbox = document.getElementById('termsCheckbox');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const emailModal = document.getElementById('emailModal');
+        const emailInput = document.getElementById('emailInput');
+        const emailSubmit = document.getElementById('emailSubmit');
+        const emailResult = document.getElementById('emailResult');
+        const paymentLoading = document.getElementById('paymentLoading');
+        const purchaseSuccess = document.getElementById('purchaseSuccess');
+        const purchaseError = document.getElementById('purchaseError');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const fullscreenOverlay = document.getElementById('fullscreen-overlay');
+        const fullscreenImage = document.getElementById('fullscreen-image');
+        const closeFullscreen = document.getElementById('close-fullscreen');
+        const countdownTimer = document.getElementById('countdown-timer');
+        const productWarningOverlay = document.getElementById('product-warning-overlay');
+        const productWarningClose = document.getElementById('product-warning-close');
+        const redirectCountdown = document.getElementById('redirect-countdown');
+        
+        // API endpoints
+        const getProductDetailsUrl = 'https://us-central1-monetizelt-b235d.cloudfunctions.net/getProductDetails';
+        const collectBuyerEmailUrl = 'https://us-central1-monetizelt-b235d.cloudfunctions.net/collectBuyerEmail';
+        const createStripeCheckoutSessionUrl = 'https://us-central1-monetizelt-b235d.cloudfunctions.net/createStripeCheckoutSession';
+        const getOrderStatusUrl = 'https://us-central1-monetizelt-b235d.cloudfunctions.net/getOrderStatus';
+        
+        // URL params: handle Stripe return
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');           // 'true' or 'false'
+        const sessionId = urlParams.get('session');         // Stripe session id
+        const errorParam = urlParams.get('error');          // optional error message
+        
+        // Warning close
+        productWarningClose.addEventListener('click', function() {
+            window.location.href = 'welcome.html';
+        });
+        
+        function startRedirectCountdown() {
+            let seconds = 7;
+            redirectCountdown.textContent = seconds;
+            const countdownInterval = setInterval(function() {
+                seconds--;
+                redirectCountdown.textContent = seconds;
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'welcome.html';
+                }
+            }, 1000);
+        }
+        
+        // Handle Stripe return
+        if (sessionId) {
+            if (success === 'true') {
+                handleStripeReturn(sessionId);
+            } else if (errorParam || success === 'false') {
+                showPaymentError(); // will auto-hide after 7s (modified below)
+            }
+        }
+        
+        function clearPaymentParams() {
+            const url = new URL(window.location.href);
+            url.searchParams.delete('success');
+            url.searchParams.delete('session');
+            url.searchParams.delete('error');
+            window.history.replaceState({}, document.title, url.toString());
+        }
+
+        // NEW: show error, auto-hide after 7s, re-enable purchase
+        function showPaymentError() {
+            // Show error message and allow retry
+            purchaseError.style.display = 'block';
+            purchaseButton.style.display = 'block';
+            purchaseButton.disabled = !termsCheckbox.checked; // respect checkbox
+            // Clear URL params so future reloads don't keep error
+            clearPaymentParams();
+            // Hide after 7 seconds
+            setTimeout(() => {
+                purchaseError.style.display = 'none';
+            }, 7000);
+        }
+
+        // Enable/disable purchase button based on checkbox
+        termsCheckbox.addEventListener('change', function() {
+            purchaseButton.disabled = !this.checked;
+        });
+        
+        // Fullscreen image handlers
+        fullscreenBtn.addEventListener('click', function() {
+            if (coverImage.src) {
+                fullscreenImage.src = coverImage.src;
+                fullscreenOverlay.style.display = 'flex';
+            }
+        });
+        closeFullscreen.addEventListener('click', function() {
+            fullscreenOverlay.style.display = 'none';
+        });
+        fullscreenOverlay.addEventListener('click', function(e) {
+            if (e.target === fullscreenOverlay) {
+                fullscreenOverlay.style.display = 'none';
+            }
+        });
+        
+        function preloadImage(url) {
+            return new Promise((resolve, reject) => {
+                if (!url) {
+                    reject(new Error('No image URL provided'));
+                    return;
+                }
+                const img = new Image();
+                img.onload = () => resolve(url);
+                img.onerror = () => reject(new Error('Failed to load image'));
+                img.src = url;
+            });
+        }
+        
+        function getProductDataFromURL() {
+            const productId = urlParams.get('productId');
+            if (productId) {
+                fetch(`${getProductDetailsUrl}?productId=${productId}`)
+                    .then(response => {
+                        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            sessionStorage.setItem('monetizelt_product', JSON.stringify(data.product));
+                            initProductPage(data.product);
+                            fetchProductExpiration(productId);
+                        } else {
+                            console.error("Error fetching product:", data.error);
+                            showError("Product not found.");
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching product:", error);
+                        showError("Error loading product. Trying alternative method...");
+                        fallbackToFirestore(productId);
+                    });
+            } else {
+                const savedProductData = JSON.parse(sessionStorage.getItem('monetizelt_product') || '{}');
+                if (savedProductData && Object.keys(savedProductData).length > 0) {
+                    initProductPage(savedProductData);
+                    if (savedProductData.id) fetchProductExpiration(savedProductData.id);
+                } else {
+                    showError("No product specified.");
+                }
+            }
+        }
+        
+        function fetchProductExpiration(productId) {
+            db.collection('products').doc(productId).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const productData = doc.data();
+                        if (productData.expiresAt) {
+                            updateCountdownTimer(productData.expiresAt.toDate());
+                        } else if (productData.year && productData.month && productData.day && productData.hour && productData.minute) {
+                            const expirationDate = new Date(
+                                productData.year, 
+                                productData.month - 1,
+                                productData.day,
+                                productData.hour,
+                                productData.minute
+                            );
+                            updateCountdownTimer(expirationDate);
+                        } else {
+                            countdownTimer.textContent = "Unknown expiration";
+                        }
+                    } else {
+                        countdownTimer.textContent = "Unknown";
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching expiration:", error);
+                    countdownTimer.textContent = "Error loading expiration";
+                });
+        }
+        
+        function updateCountdownTimer(expirationDate) {
+            function updateRemainingTime() {
+                const now = new Date();
+                const timeRemaining = expirationDate - now;
+                if (timeRemaining <= 0) {
+                    countdownTimer.textContent = "Expired";
+                    return;
+                }
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                if (days > 0) {
+                    countdownTimer.textContent = `${days} d - ${hours} h - ${minutes} min`;
+                } else if (hours > 0) {
+                    countdownTimer.textContent = `${hours} h - ${minutes} min`;
+                } else {
+                    countdownTimer.textContent = `${minutes} min left`;
+                }
+            }
+            updateRemainingTime();
+            setInterval(updateRemainingTime, 60000);
+        }
+        
+        function showError(message) {
+            productTitle.classList.remove('skeleton-loading');
+            productPrice.classList.remove('skeleton-loading');
+            productDescription.classList.remove('skeleton-loading');
+            document.querySelector('.content-container').style.display = 'none';
+            document.querySelector('.product-info').style.display = 'none';
+            document.querySelector('.description').style.display = 'none';
+            document.querySelector('.purchase-button-container').style.display = 'none';
+            document.querySelector('.purchase-terms').style.display = 'none';
+            productWarningOverlay.style.display = 'flex';
+            startRedirectCountdown();
+        }
+        
+        function fallbackToFirestore(productId) {
+            db.collection('products').doc(productId).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const productData = doc.data();
+                        db.collection('users').doc(productData.uid).get()
+                            .then((sellerDoc) => {
+                                const sellerName = sellerDoc.exists ? sellerDoc.data().displayName || "Anonymous" : "Anonymous";
+                                const product = {
+                                    id: doc.id,
+                                    title: productData.title,
+                                    description: productData.description,
+                                    price: productData.price,
+                                    category: productData.category,
+                                    coverUrl: productData.coverImage,
+                                    sellerName,
+                                    sellerUid: productData.uid
+                                };
+                                sessionStorage.setItem('monetizelt_product', JSON.stringify(product));
+                                initProductPage(product);
+                                if (productData.expiresAt) {
+                                    updateCountdownTimer(productData.expiresAt.toDate());
+                                } else if (productData.year && productData.month && productData.day && productData.hour && productData.minute) {
+                                    const expirationDate = new Date(
+                                        productData.year, 
+                                        productData.month - 1,
+                                        productData.day,
+                                        productData.hour,
+                                        productData.minute
+                                    );
+                                    updateCountdownTimer(expirationDate);
+                                } else {
+                                    countdownTimer.textContent = "Unknown expiration";
+                                }
+                            });
+                    } else {
+                        console.error("No product found with this ID");
+                        showError("Product not found.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error retrieving product:", error);
+                    showError("Error loading product.");
+                });
+        }
+        
+        getProductDataFromURL();
+        
+        function initProductPage(product) {
+            if (product && Object.keys(product).length > 0) {
+                if (product.coverUrl) {
+                    preloadImage(product.coverUrl)
+                        .then(url => {
+                            coverImage.src = url;
+                            coverImage.classList.add('loaded');
+                            coverImage.style.opacity = 1;
+                            imagePlaceholder.style.display = 'none';
+                        })
+                        .catch(error => {
+                            console.error("Error loading cover image:", error);
+                            showError("Failed to load product image");
+                        });
+                } else {
+                    showError("No product image available");
+                }
+                
+                if (product.description) {
+                    productDescription.textContent = product.description;
+                } else {
+                    productDescription.textContent = "No description available";
+                }
+                productDescription.classList.remove('skeleton-loading');
+                
+                let categoryText = '';
+                if (product.category) {
+                    categoryText = product.category.charAt(0).toUpperCase() + product.category.slice(1);
+                }
+                productTitle.innerHTML = `This product offered by the seller is a <span class="product-category">${categoryText}</span>`;
+                productTitle.classList.remove('skeleton-loading');
+                
+                if (product.price) {
+                    productPrice.textContent = `$${parseFloat(product.price).toFixed(2)}`;
+                } else {
+                    productPrice.textContent = "Price not available";
+                }
+                productPrice.classList.remove('skeleton-loading');
+                
+                // Show success/error based on URL (Stripe)
+                if (urlParams.get('success') === 'true') {
+                    // Success: show success permanently and block further purchases
+                    purchaseButton.style.display = 'none';
+                    purchaseSuccess.style.display = 'block';
+                } else if (urlParams.get('success') === 'false' || urlParams.get('error')) {
+                    // Error: show temporary error and allow retry
+                    showPaymentError();
+                }
+            } else {
+                showError("No information available for this product.");
+            }
+        }
+        
+        // Handle return from Stripe Checkout
+        function handleStripeReturn(sessionId) {
+            // Show a loader while confirming via backend
+            paymentLoading.style.display = 'block';
+            emailModal.style.display = 'block'; 
+            modalOverlay.style.display = 'block';
+
+            let attempts = 0;
+            const maxAttempts = 10;
+            const intervalMs = 2000;
+
+            function finalizeSuccess() {
+                paymentLoading.style.display = 'none';
+                emailModal.style.display = 'none';
+                modalOverlay.style.display = 'none';
+                purchaseButton.style.display = 'none';
+                purchaseSuccess.style.display = 'block'; // Do not auto-hide on success
+                clearPaymentParams();
+            }
+
+            function finalizeError() {
+                paymentLoading.style.display = 'none';
+                emailModal.style.display = 'none';
+                modalOverlay.style.display = 'none';
+                showPaymentError(); // auto-hide after 7s and allow retry
+            }
+
+            if (!getOrderStatusUrl) {
+                finalizeSuccess();
+                return;
+            }
+
+            const poll = () => {
+                attempts++;
+                fetch(`${getOrderStatusUrl}?sessionId=${encodeURIComponent(sessionId)}`)
+                    .then(res => {
+                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (data && (data.found || data.success || data.status === 'created' || data.status === 'paid')) {
+                            finalizeSuccess();
+                        } else if (attempts < maxAttempts) {
+                            setTimeout(poll, intervalMs);
+                        } else {
+                            // If webhook is slow, still treat as success to avoid blocking a legit buyer
+                            finalizeSuccess();
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Order status polling error:', err);
+                        if (attempts < maxAttempts) {
+                            setTimeout(poll, intervalMs);
+                        } else {
+                            // Persistent error -> let user retry if needed
+                            finalizeError();
+                        }
+                    });
+            };
+            poll();
+        }
+        
+        // Share
+        shareButton.addEventListener('click', function() {
+            const currentUrl = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out this product',
+                    url: currentUrl
+                })
+                .then(() => {
+                    shareNotification.textContent = "Link shared successfully!";
+                    shareNotification.classList.add('show');
+                    setTimeout(function() {
+                        shareNotification.classList.remove('show');
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Error sharing:', err);
+                    copyToClipboard(currentUrl);
+                });
+            } else {
+                copyToClipboard(currentUrl);
+            }
+        });
+        
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                shareNotification.textContent = "URL copied to clipboard!";
+                shareNotification.classList.add('show');
+                setTimeout(function() {
+                    shareNotification.classList.remove('show');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Unable to copy: ', err);
+                alert('Unable to copy URL. Error: ' + err);
+            });
+        }
+
+        // Open email modal
+        purchaseButton.addEventListener('click', function() {
+            if (termsCheckbox.checked) {
+                modalOverlay.style.display = 'block';
+                emailModal.style.display = 'block';
+                emailInput.value = '';
+                emailResult.style.display = 'none';
+                emailResult.className = 'email-result';
+                emailSubmit.disabled = false; // ensure enabled on open
+            }
+        });
+        
+        // Close modal
+        modalOverlay.addEventListener('click', function() {
+            modalOverlay.style.display = 'none';
+            emailModal.style.display = 'none';
+            paymentLoading.style.display = 'none';
+            emailSubmit.disabled = false;
+        });
+        
+        function isValidEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+        
+        // Start purchase flow
+        emailSubmit.addEventListener('click', function() {
+            const email = emailInput.value.trim();
+            const product = JSON.parse(sessionStorage.getItem('monetizelt_product') || '{}');
+            
+            if (!isValidEmail(email)) {
+                emailResult.textContent = "Please enter a valid email address";
+                emailResult.className = 'email-result error';
+                emailResult.style.display = 'block';
+                return;
+            }
+            if (!product.id) {
+                emailResult.textContent = "Product information is missing";
+                emailResult.className = 'email-result error';
+                emailResult.style.display = 'block';
+                return;
+            }
+            
+            emailSubmit.disabled = true;
+            emailResult.style.display = 'none';
+            
+            fetch(collectBuyerEmailUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    productId: product.id
+                })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                if (data.success && data.sessionId) {
+                    paymentLoading.style.display = 'block';
+                    return fetch(createStripeCheckoutSessionUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            productId: product.id,
+                            sessionId: data.sessionId,
+                            successUrl: `${window.location.origin}${window.location.pathname}?productId=${encodeURIComponent(product.id)}&success=true&session={CHECKOUT_SESSION_ID}`,
+                            cancelUrl: `${window.location.origin}${window.location.pathname}?productId=${encodeURIComponent(product.id)}&success=false`
+                        })
+                    });
+                } else {
+                    throw new Error(data.error || "Failed to collect email");
+                }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                if (data.success && data.url) {
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.error || "Failed to create Stripe checkout session");
+                }
+            })
+            .catch(error => {
+                console.error("Purchase process error:", error);
+                emailSubmit.disabled = false;
+                paymentLoading.style.display = 'none';
+                emailResult.textContent = error.message || "An error occurred. Please try again.";
+                emailResult.className = 'email-result error';
+                emailResult.style.display = 'block';
+            });
+        });
+        
+        // Enter key to submit
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                emailSubmit.click();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
