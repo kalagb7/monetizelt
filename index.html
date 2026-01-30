@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Monetizelt</title>
+
+  <!-- Description principale -->
+  <meta name="description" content="Your market, your rules. Monetizelt lets you sell time-limited digital videos easily. Generate, share, and cash in with full control.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://g-z.online/" />
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Monetizelt — Sell and Share Your Digital Videos" />
+  <meta property="og:description" content="Create your own market, share videos, and get paid instantly with Monetizelt." />
+  <meta property="og:url" content="https://g-z.online/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Monetizelt — Sell and Share Your Digital Videos" />
+  <meta name="twitter:description" content="Create your own market, share videos, and get paid instantly with Monetizelt." />
+  <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 9px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 8px;
+            border-radius: 13px;
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.1);
+            border: 1.8px solid #007bff;
+            margin-left: 5px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 1.5em;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #007bff;
+        }
+        
+        .icon-container {
+            display: flex;
+            align-items: center;
+            margin-right: 5px;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 8px 15px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .button:hover::before {
+            left: 100%;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 123, 255, 0.4);
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #007bff, transparent);
+            width: 100%;
+            margin: 0;
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .footer-text-container {
+            position: relative;
+            height: 160px;
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+        
+        .footer-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4em;
+            text-align: center;
+            background: linear-gradient(45deg, #32CD32, black);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            padding: 20px;
+            max-width: 90%;
+            text-shadow: 0 2px 10px rgba(50, 205, 50, 0.3);
+        }
+        
+        .footer-text strong {
+            font-weight: 600;
+        }
+        
+        .centered-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+            padding: 20px;
+        }
+        
+        .animated-button-wrapper {
+            position: relative;
+            padding: 4px;
+            border-radius: 50px;
+            background: transparent;
+        }
+        
+        .animated-button-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50px;
+            padding: 3px;
+            background: linear-gradient(0deg, #32CD32, #007bff, #32CD32, #007bff);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: rotateBorder 4s linear infinite;
+        }
+        
+        @keyframes rotateBorder {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .animated-button {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 18px 50px;
+            font-size: 1.2em;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.35);
+            overflow: hidden;
+        }
+        
+        .animated-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .animated-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .animated-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(0, 123, 255, 0.45);
+        }
+        
+        .animated-button:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+        
+        .animated-button span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #007bff, transparent);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .particle:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+        
+        .particle:nth-child(3) {
+            top: 40%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        .particle:nth-child(4) {
+            top: 70%;
+            left: 60%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            33% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            66% {
+                transform: translateY(20px) translateX(-10px);
+            }
+        }
+        
+        .background-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            pointer-events: none;
+            z-index: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 5%;
+            opacity: 0;
+            animation: showButtons 0.5s ease-out 3.5s forwards;
+        }
+
+        @keyframes showButtons {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .button-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 50px;
+        }
+        
+        .bg-button {
+            width: 120px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(50, 205, 50, 0.15) 0%, rgba(34, 139, 34, 0.15) 100%);
+            border: 1px solid rgba(50, 205, 50, 0.3);
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: rgba(34, 139, 34, 0.8);
+            opacity: 0;
+            box-shadow: 0 2px 10px rgba(50, 205, 50, 0.2);
+        }
+        
+        /* Groupe 1 - Pourcentage de gains */
+        .row-1 .bg-button {
+            animation: fadeGroup1 10s ease-in-out infinite;
+        }
+        
+        /* Groupe 2 - Bonus et promotions */
+        .row-2 .bg-button {
+            animation: fadeGroup2 10s ease-in-out infinite;
+            animation-delay: 3.3s;
+        }
+        
+        /* Groupe 3 - Croissance quotidienne */
+        .row-3 .bg-button {
+            animation: fadeGroup3 10s ease-in-out infinite;
+            animation-delay: 6.6s;
+        }
+        
+        @keyframes fadeGroup1 {
+            0%, 30%, 100% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            5%, 25% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeGroup2 {
+            0%, 30%, 100% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            5%, 25% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeGroup3 {
+            0%, 30%, 100% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            5%, 25% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.2em;
+            }
+            
+            .logo-container {
+                padding: 3px 6px;
+            }
+            
+            .footer-text {
+                font-size: 1.1em;
+                padding: 15px;
+            }
+            
+            .footer-text-container {
+                margin-top: 60px;
+                height: 140px;
+            }
+            
+            .animated-button {
+                padding: 14px 35px;
+                font-size: 1em;
+            }
+            
+            .centered-button-container {
+                margin-top: 40px;
+            }
+            
+            .bg-button {
+                width: 100px;
+                font-size: 0.7em;
+                height: 35px;
+            }
+            
+            .background-buttons {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="background-buttons">
+    <div class="button-row row-1">
+        <div class="bg-button">Top Growth</div>
+        <div class="bg-button">Max Revenue</div>
+        <div class="bg-button">Boost Mode</div>
+    </div>
+    <div class="button-row row-2">
+        <div class="bg-button">Get 15% off</div>
+        <div class="bg-button">88% each sale</div>
+        <div class="bg-button">+360% bonus</div>
+    </div>
+    <div class="button-row row-3">
+        <div class="bg-button">Early access</div>
+        <div class="bg-button">+25% per day</div>
+        <div class="bg-button">Premium tier</div>
+    </div>
+</div>
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+<header>
+    <div class="logo-container">
+        <h1 translate="no">Monetizelt</h1>
+    </div>
+    <div class="icon-container">
+        <a class="button" href="auth.html" id="signUpBtn">Sign Up</a>
+    </div>
+</header>
+
+<div class="divider"></div>
+
+<div class="main-content">
+    <div class="footer-text-container">
+        <h2 class="footer-text">
+            <strong>Your market, your rules.<br>Generate, share, and cash in.</strong>
+        </h2>
+    </div>
+
+    <div class="centered-button-container">
+        <div class="animated-button-wrapper">
+            <a class="animated-button" href="auth.html" id="signUpBtnBottom">
+                <span>Sign Up</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        const hasVisited = localStorage.getItem('monetizelt_visited');
+        
+        if (hasVisited === 'true') {
+            window.location.href = 'auth.html';
+        }
+    });
+
+    const signUpButtons = document.querySelectorAll('#signUpBtn, #signUpBtnBottom');
+    
+    signUpButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            localStorage.setItem('monetizelt_visited', 'true');
+        });
+    });
+</script>
+
+</body>
+</html>
