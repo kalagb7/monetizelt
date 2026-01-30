@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Monetizelt</title>
+
+    <!-- Description principale -->
+    <meta name="description"
+        content="Your market, your rules. Monetizelt lets you sell time-limited digital videos easily. Generate, share, and cash in with full control." />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://monetizelt.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Monetizelt — Sell and Share Your Digital Videos" />
+    <meta property="og:description" content="Create your own market, share videos, and get paid instantly with Monetizelt." />
+    <meta property="og:url" content="https://monetizelt.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image"
+        content="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Monetizelt — Sell and Share Your Digital Videos" />
+    <meta name="twitter:description" content="Create your own market, share videos, and get paid instantly with Monetizelt." />
+    <meta name="twitter:image"
+        content="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175" />
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175" />
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --primary-dark: #0056b3;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --white: #ffffff;
+            --error-color: #ff3333;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.3;
+            font-size: 13px;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 3em;
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            border: 1.5px solid var(--primary-color);
+            padding: 0px 11px;
+            border-radius: 13px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            width: 100%;
+            margin: 2px 0;
+        }
+
+        .form-container {
+            padding: 12px;
+            text-align: center;
+            background-color: #e9f5ff;
+            border: 1px solid var(--primary-color);
+            border-radius: 30px;
+            margin: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            animation: slideUp 0.8s ease-out;
+            position: relative;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button {
+            display: block;
+            background-color: #0077BE;
+            border: 1px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 10px;
+            margin: 12px auto;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+            padding: 10px;
+            border: 1px solid var(--primary-color);
+            border-radius: 15px;
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            -webkit-appearance: none;
+            appearance: none;
+            max-height: 40px;
+        }
+
+        .toggle-button {
+            cursor: pointer;
+            margin: 12px;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 8px 12px;
+            border-radius: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: var(--primary-dark);
+            font-family: 'Billabong', cursive;
+            font-weight: normal;
+        }
+
+        .forgot-password {
+            margin-top: 12px;
+            color: var(--primary-color);
+            cursor: pointer;
+            border: 1px solid var(--primary-color);
+            padding: 8px 12px;
+            border-radius: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .message {
+            margin: 12px auto;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 300px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            line-height: 1.4;
+        }
+
+        .message i {
+            margin-right: 8px;
+            font-size: 15px;
+        }
+
+        .message.error {
+            background-color: rgba(255, 51, 51, 0.1);
+            color: var(--error-color);
+            border: 1px solid rgba(255, 51, 51, 0.3);
+        }
+
+        .message.success {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: var(--success-color);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+
+        .message.warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #856404;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .message.info {
+            background-color: rgba(0, 123, 255, 0.1);
+            color: var(--primary-color);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+
+        .footer-links {
+            margin-top: 18px;
+            font-size: 11px;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            width: 0;
+            z-index: 1100;
+            transition: width 0.3s ease;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(0, 123, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        .password-strength {
+            width: 80%;
+            max-width: 300px;
+            height: 4px;
+            background-color: #ddd;
+            margin: 4px auto 12px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .password-strength-meter {
+            height: 100%;
+            width: 0;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        .password-feedback {
+            font-size: 11px;
+            margin-bottom: 12px;
+        }
+
+        .loading-dots {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            height: 16px;
+        }
+
+        .loading-dots .dot {
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: dotPulse 1.4s infinite ease-in-out;
+        }
+
+        .loading-dots .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-dots .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .loading-dots.hidden {
+            display: none;
+        }
+
+        .multi-step-container {
+            position: relative;
+        }
+
+        .step-progress {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .step-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 4px;
+            transition: background-color 0.3s;
+        }
+
+        .step-indicator.active {
+            background-color: var(--primary-color);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .step-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 80%;
+            max-width: 300px;
+            margin: 20px auto 0;
+        }
+
+        .prev-step-btn {
+            background-color: #f0f0f0;
+            color: var(--text-color);
+            border: 1px solid #ddd;
+        }
+
+        .verification-container {
+            text-align: center;
+            margin: 12px auto;
+            max-width: 300px;
+        }
+
+        .verification-code {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .verification-code input {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            margin-bottom: 0;
+            background: white;
+        }
+
+        .verification-timer {
+            font-size: 12px;
+            margin-top: 8px;
+            color: var(--primary-dark);
+        }
+
+        .resend-code {
+            font-size: 12px;
+            color: var(--primary-color);
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .age-check {
+            margin: 12px auto;
+            padding: 12px;
+            border-radius: 16px;
+            max-width: 320px;
+            background: white;
+            border: 1px solid rgba(0, 123, 255, 0.35);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+        }
+
+        .age-check .age-title {
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .age-check .age-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .age-check .mini-btn {
+            width: auto;
+            max-width: none;
+            padding: 8px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .age-check .mini-btn.yes {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .age-check .mini-btn.no {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .age-check .mini-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .tiny-note {
+            font-size: 11px;
+            max-width: 300px;
+            margin: -6px auto 12px;
+            color: rgba(51, 51, 51, 0.75);
+            line-height: 1.35;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Splash screen */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .splash-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .dots-container {
+            width: 80%;
+            max-width: 300px;
+            height: 60px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .moving-dot {
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #leftDot {
+            left: 0;
+            animation: moveLeftDot 2s infinite ease-in-out;
+        }
+
+        #rightDot {
+            right: 0;
+            animation: moveRightDot 2s infinite ease-in-out;
+        }
+
+        .slogan {
+            font-family: 'Billabong', cursive;
+            color: var(--primary-dark);
+            font-size: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlogan 3s forwards;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            animation: pulseImage 2s infinite alternate;
+            margin-bottom: 20px;
+        }
+
+        /* PWA prompt */
+        #installPrompt {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--white);
+            border: 1px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+            animation: slideUpPrompt 0.5s ease;
+        }
+
+        @keyframes slideUpPrompt {
+            from {
+                transform: translate(-50%, 100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+
+        .install-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 8px 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .close-prompt {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        @keyframes dotPulse {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes moveLeftDot {
+
+            0%,
+            100% {
+                left: 0;
+            }
+
+            50% {
+                left: calc(100% - 20px);
+            }
+        }
+
+        @keyframes moveRightDot {
+
+            0%,
+            100% {
+                right: 0;
+            }
+
+            50% {
+                right: calc(100% - 20px);
+            }
+        }
+
+        @keyframes fadeSlogan {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            50% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseImage {
+            from {
+                transform: scale(1);
+                box-shadow: 0 0 0 rgba(0, 123, 255, 0.4);
+            }
+
+            to {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8em;
+            }
+
+            .form-container {
+                margin: 12px;
+                padding: 16px;
+            }
+
+            .button {
+                width: 90%;
+            }
+
+            .form-container input,
+            .form-container select,
+            .form-container textarea {
+                width: 90%;
+                max-height: 40px;
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .splash-screen .slogan {
+                font-size: 20px;
+            }
+
+            .profile-image {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Splash screen -->
+    <div class="splash-screen" id="splashScreen">
+        <img src="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175"
+            alt="Monetizelt" class="profile-image" />
+        <div class="dots-container">
+            <div class="moving-dot" id="leftDot"></div>
+            <div class="moving-dot" id="rightDot"></div>
+        </div>
+        <div class="slogan"></div>
+    </div>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <span class="logo" translate="no"><b>Monetizelt</b></span>
+    </header>
+    <div class="divider"></div>
+
+    <!-- Prompt d'installation -->
+    <div id="installPrompt">
+        <span class="close-prompt" id="closePrompt">&times;</span>
+        <p>Installez Monetizelt sur votre appareil pour un accès rapide</p>
+        <button class="install-btn" id="installApp">Installer</button>
+    </div>
+
+    <!-- LOGIN (Email + Password) -->
+    <div class="form-container" id="loginForm">
+        <h2><b>Welcome Back</b></h2>
+        <div id="loginMessages"></div>
+        <input type="email" id="loginEmail" placeholder="Enter your email" autocomplete="email" required />
+        <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required />
+        <button class="button" id="loginUser">
+            <div class="loading-dots hidden" id="loginDots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            Login
+        </button>
+
+        <p class="toggle-button" id="showPhoneLogin"><b>Login with SMS</b></p>
+        <p class="toggle-button" id="showSignup"><b>No account? Sign up</b></p>
+        <p class="forgot-password" id="forgotPassword"><b>Forgot password?</b></p>
+
+        <div class="footer-links">
+            <a href="terms.html">Terms of Use</a> |
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- LOGIN (Phone / SMS) -->
+    <div class="form-container" id="phoneLoginForm" style="display:none;">
+        <h2><b>SMS Login</b></h2>
+        <div id="phoneLoginMessages"></div>
+
+        <input type="tel" id="phoneLoginNumber" placeholder="Phone number (ex: +33...)" autocomplete="tel" required />
+        <div class="tiny-note">Use international format: +CountryCode + number</div>
+
+        <button class="button" id="sendLoginCode">
+            <div class="loading-dots hidden" id="loginSmsDots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            Send code
+        </button>
+
+        <div class="verification-container hidden" id="phoneLoginCodeBox">
+            <div class="verification-code">
+                <input type="text" maxlength="1" class="code-digit" id="loginDigit1" />
+                <input type="text" maxlength="1" class="code-digit" id="loginDigit2" />
+                <input type="text" maxlength="1" class="code-digit" id="loginDigit3" />
+                <input type="text" maxlength="1" class="code-digit" id="loginDigit4" />
+                <input type="text" maxlength="1" class="code-digit" id="loginDigit5" />
+                <input type="text" maxlength="1" class="code-digit" id="loginDigit6" />
+            </div>
+            <div class="verification-timer" id="loginSmsTimer">Resend in 00:59</div>
+            <div class="resend-code" id="resendLoginSms">Resend code</div>
+        </div>
+
+        <button class="button hidden" id="confirmPhoneLogin">
+            <div class="loading-dots hidden" id="confirmLoginSmsDots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            Continue
+        </button>
+
+        <p class="go-back toggle-button" id="backToEmailLogin"><b>Back</b></p>
+
+        <div class="footer-links">
+            <a href="terms.html">Terms of Use</a> |
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- RESET PASSWORD (Phone / SMS) -->
+    <div class="form-container" id="resetPasswordForm" style="display:none;">
+        <h2><b>Reset Password</b></h2>
+        <div id="resetPasswordMessages"></div>
+
+        <input type="tel" id="resetPhoneNumber" placeholder="Phone number (ex: +33...)" autocomplete="tel" required />
+        <div class="tiny-note">We will verify your number by SMS.</div>
+
+        <button class="button" id="sendResetSms">
+            <div class="loading-dots hidden" id="resetSmsDots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            Send code
+        </button>
+
+        <div class="verification-container hidden" id="resetCodeBox">
+            <div class="verification-code">
+                <input type="text" maxlength="1" class="code-digit" id="resetDigit1" />
+                <input type="text" maxlength="1" class="code-digit" id="resetDigit2" />
+                <input type="text" maxlength="1" class="code-digit" id="resetDigit3" />
+                <input type="text" maxlength="1" class="code-digit" id="resetDigit4" />
+                <input type="text" maxlength="1" class="code-digit" id="resetDigit5" />
+                <input type="text" maxlength="1" class="code-digit" id="resetDigit6" />
+            </div>
+            <div class="verification-timer" id="resetSmsTimer">Resend in 00:59</div>
+            <div class="resend-code" id="resendResetSms">Resend code</div>
+        </div>
+
+        <div id="newPasswordBox" class="hidden">
+            <input type="password" id="newPassword" placeholder="New password" autocomplete="new-password" />
+            <div class="password-strength">
+                <div class="password-strength-meter" id="resetPasswordStrengthMeter"></div>
+            </div>
+            <div class="password-feedback" id="resetPasswordFeedback"></div>
+            <input type="password" id="confirmNewPassword" placeholder="Confirm new password"
+                autocomplete="new-password" />
+        </div>
+
+        <button class="button hidden" id="confirmResetCode">
+            <div class="loading-dots hidden" id="confirmResetDots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            Verify
+        </button>
+
+        <button class="button hidden" id="applyNewPassword">
+            <div class="loading-dots hidden" id="applyNewPasswordDots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            Update password
+        </button>
+
+        <p class="go-back toggle-button" id="backToLogin"><b>Back to login</b></p>
+
+        <div class="footer-links">
+            <a href="terms.html">Terms of Use</a> |
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- SIGNUP (Only Individual) -->
+    <div class="form-container" id="signupForm" style="display:none;">
+        <h2><b>Welcome</b></h2>
+        <div id="signupMessages"></div>
+
+        <div class="multi-step-container">
+            <div class="step-progress">
+                <div class="step-indicator active" data-step="1"></div>
+                <div class="step-indicator" data-step="2"></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="form-step active" id="step1">
+                <input type="text" id="fullName" placeholder="Full name" autocomplete="name" required />
+                <input type="email" id="signupEmail" placeholder="Enter your email" autocomplete="email" required />
+                <input type="tel" id="signupPhone" placeholder="Phone number (ex: +33...)" autocomplete="tel"
+                    required />
+                <div class="tiny-note">SMS verification is required.</div>
+
+                <input type="password" id="signupPassword" placeholder="Create a password" autocomplete="new-password"
+                    required />
+                <div class="password-strength">
+                    <div class="password-strength-meter" id="passwordStrengthMeter"></div>
+                </div>
+                <div class="password-feedback" id="passwordFeedback"></div>
+                <input type="password" id="confirmPassword" placeholder="Confirm password"
+                    autocomplete="new-password" required />
+
+                <!-- Age prompt (shown after Continue) -->
+                <div class="age-check hidden" id="ageCheckBox">
+                    <div class="age-title">Are you 12 years old or more?</div>
+                    <div class="tiny-note" id="ipStatusText">We’ll use your IP to prefill your location.</div>
+                    <div class="age-actions">
+                        <button class="mini-btn yes" id="ageYesBtn" type="button">Yes</button>
+                        <button class="mini-btn no" id="ageNoBtn" type="button">No</button>
+                    </div>
+                </div>
+
+                <button class="button" id="goToStep2">
+                    Continue
+                </button>
+            </div>
+
+            <!-- Step 2: SMS code -->
+            <div class="form-step" id="step2">
+                <div class="verification-container">
+                    <!-- minimal text, per your request -->
+                    <div class="verification-code">
+                        <input type="text" maxlength="1" class="code-digit" id="digit1" />
+                        <input type="text" maxlength="1" class="code-digit" id="digit2" />
+                        <input type="text" maxlength="1" class="code-digit" id="digit3" />
+                        <input type="text" maxlength="1" class="code-digit" id="digit4" />
+                        <input type="text" maxlength="1" class="code-digit" id="digit5" />
+                        <input type="text" maxlength="1" class="code-digit" id="digit6" />
+                    </div>
+                    <div class="verification-timer" id="verificationTimer">Resend in 00:59</div>
+                    <div class="resend-code" id="resendCode">Resend code</div>
+                </div>
+
+                <div class="step-buttons">
+                    <button class="button prev-step-btn" id="backToStep1">Back</button>
+                    <button class="button" id="createAccount">
+                        <div class="loading-dots hidden" id="signupDots">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        Create Account
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <p class="toggle-button" id="showLogin"><b>Already have an account? Log in</b></p>
+        <div class="footer-links">
+            <a href="terms.html">Terms of Use</a> |
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- reCAPTCHA containers (invisible) -->
+    <div id="recaptcha-signup" style="display:none;"></div>
+    <div id="recaptcha-login" style="display:none;"></div>
+    <div id="recaptcha-reset" style="display:none;"></div>
+
+    <script type="module">
+        /*****************************************************************
+         * Firebase (UPDATED to your new config + v12.8.0)
+         *****************************************************************/
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+        import {
+            getAuth,
+            onAuthStateChanged,
+            signInWithEmailAndPassword,
+            signInWithPhoneNumber,
+            RecaptchaVerifier,
+            EmailAuthProvider,
+            linkWithCredential,
+            updatePassword,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+        import {
+            getFirestore,
+            doc,
+            setDoc,
+            getDoc,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCblQuI1bS9ozkvN4D9_th7hbJAuk7PEPU",
+            authDomain: "laplay-60c89.firebaseapp.com",
+            projectId: "laplay-60c89",
+            storageBucket: "laplay-60c89.firebasestorage.app",
+            messagingSenderId: "4297010563",
+            appId: "1:4297010563:web:39e5b3c9f83011dcb19ab6",
+            measurementId: "G-MJ3L7DTNMW"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        /*****************************************************************
+         * UI refs
+         *****************************************************************/
+        const splashScreen = document.getElementById('splashScreen');
+        const progressBar = document.getElementById('progressBar');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        // PWA prompt
+        let deferredPrompt;
+        const installPrompt = document.getElementById('installPrompt');
+        const closePromptBtn = document.getElementById('closePrompt');
+        const installAppBtn = document.getElementById('installApp');
+
+        // Forms
+        const loginForm = document.getElementById('loginForm');
+        const phoneLoginForm = document.getElementById('phoneLoginForm');
+        const resetPasswordForm = document.getElementById('resetPasswordForm');
+        const signupForm = document.getElementById('signupForm');
+
+        // Messages
+        const loginMessages = document.getElementById('loginMessages');
+        const phoneLoginMessages = document.getElementById('phoneLoginMessages');
+        const resetPasswordMessages = document.getElementById('resetPasswordMessages');
+        const signupMessages = document.getElementById('signupMessages');
+
+        // Loading dots
+        const loginDots = document.getElementById('loginDots');
+        const loginSmsDots = document.getElementById('loginSmsDots');
+        const confirmLoginSmsDots = document.getElementById('confirmLoginSmsDots');
+        const resetSmsDots = document.getElementById('resetSmsDots');
+        const confirmResetDots = document.getElementById('confirmResetDots');
+        const applyNewPasswordDots = document.getElementById('applyNewPasswordDots');
+        const signupDots = document.getElementById('signupDots');
+
+        // Signup steps
+        const steps = document.querySelectorAll('#signupForm .form-step');
+        const stepIndicators = document.querySelectorAll('#signupForm .step-indicator');
+        const ageCheckBox = document.getElementById('ageCheckBox');
+        const ipStatusText = document.getElementById('ipStatusText');
+
+        // Signup code inputs
+        const codeDigitsSignup = document.querySelectorAll('#step2 .code-digit');
+
+        // Login SMS code inputs
+        const phoneLoginCodeBox = document.getElementById('phoneLoginCodeBox');
+        const codeDigitsLogin = document.querySelectorAll('#phoneLoginCodeBox .code-digit');
+
+        // Reset SMS code inputs
+        const resetCodeBox = document.getElementById('resetCodeBox');
+        const codeDigitsReset = document.querySelectorAll('#resetCodeBox .code-digit');
+
+        // Timers
+        const verificationTimer = document.getElementById('verificationTimer');
+        const resendCode = document.getElementById('resendCode');
+        const loginSmsTimer = document.getElementById('loginSmsTimer');
+        const resendLoginSms = document.getElementById('resendLoginSms');
+        const resetSmsTimer = document.getElementById('resetSmsTimer');
+        const resendResetSms = document.getElementById('resendResetSms');
+
+        // Reset password UI
+        const newPasswordBox = document.getElementById('newPasswordBox');
+        const confirmResetCodeBtn = document.getElementById('confirmResetCode');
+        const applyNewPasswordBtn = document.getElementById('applyNewPassword');
+
+        /*****************************************************************
+         * State
+         *****************************************************************/
+        let redirectionActive = false;
+
+        // SMS confirmation results
+        let signupConfirmationResult = null;
+        let loginConfirmationResult = null;
+        let resetConfirmationResult = null;
+
+        // reCAPTCHA verifiers
+        let recaptchaSignup = null;
+        let recaptchaLogin = null;
+        let recaptchaReset = null;
+
+        // Timer intervals
+        let signupTimerInterval = null;
+        let loginTimerInterval = null;
+        let resetTimerInterval = null;
+
+        // IP location capture
+        let ipLocationData = null;
+
+        /*****************************************************************
+         * Helpers
+         *****************************************************************/
+        function handleSplashScreen() {
+            setTimeout(() => {
+                splashScreen.classList.add('hidden');
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 500);
+            }, 1500);
+        }
+
+        function handlePWAInstallation() {
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                console.log("PWA install available");
+            });
+
+            closePromptBtn.addEventListener('click', () => {
+                installPrompt.style.display = 'none';
+            });
+
+            installAppBtn.addEventListener('click', async () => {
+                if (!deferredPrompt) return;
+                deferredPrompt.prompt();
+                await deferredPrompt.userChoice;
+                installPrompt.style.display = 'none';
+                deferredPrompt = null;
+            });
+
+            window.addEventListener('appinstalled', () => {
+                installPrompt.style.display = 'none';
+                deferredPrompt = null;
+            });
+        }
+
+        function showMessage(container, message, type = 'error') {
+            const iconClass = type === 'error' ? 'fa-circle-exclamation' :
+                type === 'success' ? 'fa-circle-check' :
+                    type === 'warning' ? 'fa-triangle-exclamation' : 'fa-circle-info';
+
+            container.innerHTML = `
+                <div class="message ${type}">
+                    <i class="fas ${iconClass}"></i>
+                    ${message}
+                </div>
+            `;
+        }
+
+        function simulateProgress(start, end, duration) {
+            const startTime = Date.now();
+            progressBar.style.width = start + '%';
+
+            function update() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min((elapsed / duration) * (end - start) + start, end);
+                progressBar.style.width = progress + '%';
+
+                if (progress < end) {
+                    requestAnimationFrame(update);
+                } else if (end === 100) {
+                    setTimeout(() => progressBar.style.width = '0%', 300);
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        function toggleLoader(show) {
+            if (show) loadingOverlay.classList.add('active');
+            else loadingOverlay.classList.remove('active');
+        }
+
+        function setBtnLoading(button, dots, isLoading) {
+            if (!button || !dots) return;
+            button.disabled = !!isLoading;
+            dots.classList.toggle('hidden', !isLoading);
+        }
+
+        function switchForm(showFormId) {
+            loginForm.style.display = 'none';
+            phoneLoginForm.style.display = 'none';
+            resetPasswordForm.style.display = 'none';
+            signupForm.style.display = 'none';
+
+            document.getElementById(showFormId).style.display = 'block';
+
+            // clear messages
+            loginMessages.innerHTML = '';
+            phoneLoginMessages.innerHTML = '';
+            resetPasswordMessages.innerHTML = '';
+            signupMessages.innerHTML = '';
+        }
+
+        function goToSignupStep(step) {
+            steps.forEach(s => s.classList.remove('active'));
+            stepIndicators.forEach(ind => {
+                if (parseInt(ind.dataset.step, 10) <= step) ind.classList.add('active');
+                else ind.classList.remove('active');
+            });
+            document.getElementById(`step${step}`).classList.add('active');
+            signupMessages.innerHTML = '';
+        }
+
+        function getVerificationCode(codeInputs) {
+            return Array.from(codeInputs).map(d => d.value).join('');
+        }
+
+        function setupCodeInputs(codeInputs) {
+            codeInputs.forEach((input, index) => {
+                input.addEventListener('input', function () {
+                    this.value = this.value.replace(/\D/g, '');
+                    if (this.value.length === 1 && index < codeInputs.length - 1) {
+                        codeInputs[index + 1].focus();
+                    }
+                });
+
+                input.addEventListener('keydown', function (e) {
+                    if (e.key === 'Backspace' && !this.value && index > 0) {
+                        codeInputs[index - 1].focus();
+                    }
+                });
+
+                input.addEventListener('keypress', function (e) {
+                    if (!/\d/.test(e.key)) e.preventDefault();
+                });
+            });
+        }
+
+        function evaluatePasswordStrength(password, meterElementId, feedbackElementId) {
+            const meter = document.getElementById(meterElementId);
+            const feedback = document.getElementById(feedbackElementId);
+
+            if (!password) {
+                meter.style.width = '0%';
+                feedback.textContent = '';
+                return;
+            }
+
+            let strength = 0;
+            let message = '';
+
+            if (password.length > 5) strength += 20;
+            if (password.length > 8) strength += 10;
+            if (/[a-z]/.test(password)) strength += 10;
+            if (/[A-Z]/.test(password)) strength += 15;
+            if (/[0-9]/.test(password)) strength += 15;
+            if (/[^a-zA-Z0-9]/.test(password)) strength += 20;
+
+            let color;
+            if (strength < 30) { color = '#ff4d4d'; message = 'Very weak password'; }
+            else if (strength < 50) { color = '#ffaa00'; message = 'Weak password'; }
+            else if (strength < 70) { color = '#ffdd00'; message = 'Medium password'; }
+            else if (strength < 90) { color = '#4CAF50'; message = 'Strong password'; }
+            else { color = '#4CAF50'; message = 'Very strong password'; }
+
+            meter.style.width = strength + '%';
+            meter.style.backgroundColor = color;
+            feedback.textContent = message;
+            feedback.style.color = color;
+        }
+
+        function validateE164(phone) {
+            // Basic E.164 check: + then 8-15 digits
+            const cleaned = phone.trim();
+            if (!/^\+\d{8,15}$/.test(cleaned)) {
+                return { valid: false, message: "Invalid phone format. Example: +33612345678" };
+            }
+            return { valid: true, message: "OK" };
+        }
+
+        function startResendTimer(timerEl, resendEl, seconds, assignIntervalFn) {
+            let left = seconds;
+            resendEl.style.display = 'none';
+            timerEl.style.display = 'block';
+            timerEl.textContent = `Resend in 00:${left < 10 ? '0' + left : left}`;
+
+            const interval = setInterval(() => {
+                left--;
+                timerEl.textContent = `Resend in 00:${left < 10 ? '0' + left : left}`;
+                if (left <= 0) {
+                    clearInterval(interval);
+                    timerEl.style.display = 'none';
+                    resendEl.style.display = 'block';
+                }
+            }, 1000);
+
+            assignIntervalFn(interval);
+        }
+
+        async function fetchIpLocation() {
+            // You asked: collect country, city, "secteur" by IP.
+            // Here we store: country, city, region (as "secteur"), plus IP + coordinates when available.
+            // API: https://ipwho.is (free, no key)
+            const res = await fetch("https://ipwho.is/");
+            const data = await res.json();
+            if (!data || data.success === false) {
+                throw new Error("IP lookup failed");
+            }
+            return {
+                ip: data.ip || null,
+                country: data.country || null,
+                countryCode: data.country_code || null,
+                city: data.city || null,
+                sector: data.region || null, // "secteur" -> region/admin area
+                region: data.region || null,
+                latitude: data.latitude ?? null,
+                longitude: data.longitude ?? null,
+                timezone: data.timezone?.id || null
+            };
+        }
+
+        function generateUserId() {
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const numbers = "0123456789";
+            let id = "";
+            for (let i = 0; i < 3; i++) id += letters.charAt(Math.floor(Math.random() * letters.length));
+            for (let i = 0; i < 3; i++) id += numbers.charAt(Math.floor(Math.random() * numbers.length));
+            return id.split('').sort(() => 0.5 - Math.random()).join('');
+        }
+
+        async function isUserIdUnique(userId) {
+            try {
+                const snap = await getDoc(doc(db, "users", `userId_${userId}`));
+                return !snap.exists();
+            } catch (e) {
+                console.error(e);
+                return false;
+            }
+        }
+
+        async function generateUniqueUserId() {
+            let attempts = 0;
+            while (attempts < 10) {
+                const id = generateUserId();
+                const ok = await isUserIdUnique(id);
+                if (ok) return id;
+                attempts++;
+            }
+            // fallback if extremely unlucky
+            return generateUserId();
+        }
+
+        function getOrCreateRecaptcha(flow) {
+            const common = {
+                size: "invisible",
+                "expired-callback": () => console.log("reCAPTCHA expired (" + flow + ")")
+            };
+
+            if (flow === "signup") {
+                if (recaptchaSignup) return recaptchaSignup;
+                recaptchaSignup = new RecaptchaVerifier(auth, "recaptcha-signup", common);
+                return recaptchaSignup;
+            }
+            if (flow === "login") {
+                if (recaptchaLogin) return recaptchaLogin;
+                recaptchaLogin = new RecaptchaVerifier(auth, "recaptcha-login", common);
+                return recaptchaLogin;
+            }
+            if (flow === "reset") {
+                if (recaptchaReset) return recaptchaReset;
+                recaptchaReset = new RecaptchaVerifier(auth, "recaptcha-reset", common);
+                return recaptchaReset;
+            }
+            throw new Error("Unknown recaptcha flow");
+        }
+
+        async function resetRecaptcha(flow) {
+            try {
+                if (flow === "signup" && recaptchaSignup) { recaptchaSignup.clear(); recaptchaSignup = null; }
+                if (flow === "login" && recaptchaLogin) { recaptchaLogin.clear(); recaptchaLogin = null; }
+                if (flow === "reset" && recaptchaReset) { recaptchaReset.clear(); recaptchaReset = null; }
+            } catch (e) {
+                console.warn("Recaptcha clear warning:", e);
+            }
+        }
+
+        /*****************************************************************
+         * Auth redirect check
+         *****************************************************************/
+        async function checkUserProfileAndRedirect(user) {
+            try {
+                redirectionActive = true;
+                toggleLoader(true);
+
+                const userDoc = await getDoc(doc(db, "users", user.uid));
+                if (userDoc.exists()) {
+                    window.location.href = "dashboard.html";
+                } else {
+                    redirectionActive = false;
+                    toggleLoader(false);
+                }
+            } catch (e) {
+                console.error(e);
+                redirectionActive = false;
+                toggleLoader(false);
+            }
+        }
+
+        /*****************************************************************
+         * Init
+         *****************************************************************/
+        function init() {
+            handleSplashScreen();
+            handlePWAInstallation();
+
+            // Setup code inputs
+            setupCodeInputs(codeDigitsSignup);
+            setupCodeInputs(codeDigitsLogin);
+            setupCodeInputs(codeDigitsReset);
+
+            // Password meters
+            document.getElementById('signupPassword').addEventListener('input', function () {
+                evaluatePasswordStrength(this.value, 'passwordStrengthMeter', 'passwordFeedback');
+            });
+            document.getElementById('newPassword').addEventListener('input', function () {
+                evaluatePasswordStrength(this.value, 'resetPasswordStrengthMeter', 'resetPasswordFeedback');
+            });
+
+            // Auth state
+            onAuthStateChanged(auth, (user) => {
+                if (user && !redirectionActive) checkUserProfileAndRedirect(user);
+            });
+        }
+
+        init();
+
+        /*****************************************************************
+         * Signup flow (Phone SMS verification + link email/password)
+         *****************************************************************/
+        let pendingAgeConfirmed = false;
+
+        document.getElementById('goToStep2').addEventListener('click', async function () {
+            const fullName = document.getElementById("fullName").value.trim();
+            const email = document.getElementById("signupEmail").value.trim();
+            const phone = document.getElementById("signupPhone").value.trim();
+            const password = document.getElementById("signupPassword").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Basic validation
+            if (!fullName) return showMessage(signupMessages, "Please enter your full name", "error");
+            if (!email) return showMessage(signupMessages, "Please enter your email address", "error");
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) return showMessage(signupMessages, "Please enter a valid email address", "error");
+
+            const phoneCheck = validateE164(phone);
+            if (!phoneCheck.valid) return showMessage(signupMessages, phoneCheck.message, "error");
+
+            if (!password) return showMessage(signupMessages, "Please enter a password", "error");
+            if (password.length < 6) return showMessage(signupMessages, "Password must be at least 6 characters", "error");
+            if (password !== confirmPassword) return showMessage(signupMessages, "Passwords don't match", "error");
+
+            // Show age prompt (only once)
+            ageCheckBox.classList.remove('hidden');
+            showMessage(signupMessages, "Before continuing, confirm your age.", "info");
+        });
+
+        document.getElementById('ageNoBtn').addEventListener('click', function () {
+            pendingAgeConfirmed = false;
+            showMessage(signupMessages, "Sorry, you must be 12+ to create an account.", "error");
+        });
+
+        document.getElementById('ageYesBtn').addEventListener('click', async function () {
+            if (pendingAgeConfirmed) return;
+
+            const email = document.getElementById("signupEmail").value.trim();
+            const phone = document.getElementById("signupPhone").value.trim();
+
+            pendingAgeConfirmed = true;
+            ipStatusText.textContent = "Detecting your location...";
+            toggleLoader(true);
+            simulateProgress(0, 40, 350);
+
+            // Fetch IP location (best effort)
+            try {
+                ipLocationData = await fetchIpLocation();
+                ipStatusText.textContent = ipLocationData?.city
+                    ? `Location detected: ${ipLocationData.city}, ${ipLocationData.sector || ipLocationData.region || ''} ${ipLocationData.country || ''}`.replace(/\s+,/g, ',')
+                    : "Location detected.";
+            } catch (e) {
+                console.warn("IP location failed:", e);
+                ipLocationData = { ip: null, country: null, city: null, sector: null, region: null };
+                ipStatusText.textContent = "Location detection unavailable (will continue).";
+            }
+
+            // Send SMS
+            try {
+                showMessage(signupMessages, "Sending SMS code...", "info");
+
+                await resetRecaptcha("signup");
+                const verifier = getOrCreateRecaptcha("signup");
+
+                signupConfirmationResult = await signInWithPhoneNumber(auth, phone, verifier);
+
+                simulateProgress(40, 100, 350);
+                toggleLoader(false);
+
+                // Go to step 2 (code input)
+                goToSignupStep(2);
+
+                // Reset code fields
+                codeDigitsSignup.forEach(d => d.value = '');
+                codeDigitsSignup[0].focus();
+
+                // Start resend timer
+                startResendTimer(verificationTimer, resendCode, 59, (i) => { clearInterval(signupTimerInterval); signupTimerInterval = i; });
+
+                showMessage(signupMessages, "Code sent.", "success");
+            } catch (error) {
+                console.error("SMS send error (signup):", error);
+                toggleLoader(false);
+                simulateProgress(40, 100, 150);
+                pendingAgeConfirmed = false;
+
+                let msg = "Failed to send SMS. Please try again.";
+                if (error.code === "auth/invalid-phone-number") msg = "Invalid phone number.";
+                if (error.code === "auth/too-many-requests") msg = "Too many requests. Try again later.";
+                if (error.code === "auth/captcha-check-failed") msg = "reCAPTCHA failed. Try again.";
+
+                showMessage(signupMessages, msg, "error");
+            }
+        });
+
+        document.getElementById('resendCode').addEventListener('click', async function () {
+            // resend = re-run signInWithPhoneNumber
+            const phone = document.getElementById("signupPhone").value.trim();
+            try {
+                showMessage(signupMessages, "Resending code...", "info");
+                await resetRecaptcha("signup");
+                const verifier = getOrCreateRecaptcha("signup");
+                signupConfirmationResult = await signInWithPhoneNumber(auth, phone, verifier);
+
+                startResendTimer(verificationTimer, resendCode, 59, (i) => { clearInterval(signupTimerInterval); signupTimerInterval = i; });
+                showMessage(signupMessages, "Code resent.", "success");
+            } catch (e) {
+                console.error(e);
+                showMessage(signupMessages, "Failed to resend. Please try later.", "error");
+            }
+        });
+
+        document.getElementById('backToStep1').addEventListener('click', function () {
+            goToSignupStep(1);
+        });
+
+        document.getElementById("createAccount").addEventListener("click", async function () {
+            const btn = this;
+            setBtnLoading(btn, signupDots, true);
+            simulateProgress(0, 40, 300);
+
+            try {
+                if (!signupConfirmationResult) {
+                    setBtnLoading(btn, signupDots, false);
+                    return showMessage(signupMessages, "Please request an SMS code first.", "error");
+                }
+
+                const code = getVerificationCode(codeDigitsSignup);
+                if (code.length !== 6) {
+                    setBtnLoading(btn, signupDots, false);
+                    return showMessage(signupMessages, "Enter the 6-digit code.", "error");
+                }
+
+                showMessage(signupMessages, "Verifying code...", "info");
+                const phoneCredResult = await signupConfirmationResult.confirm(code);
+                const user = phoneCredResult.user;
+
+                simulateProgress(40, 70, 300);
+
+                // Link email/password to the same user (so they can login with email+password too)
+                const fullName = document.getElementById("fullName").value.trim();
+                const email = document.getElementById("signupEmail").value.trim();
+                const password = document.getElementById("signupPassword").value;
+                const phone = document.getElementById("signupPhone").value.trim();
+
+                showMessage(signupMessages, "Finalizing account...", "info");
+
+                const emailCred = EmailAuthProvider.credential(email, password);
+                try {
+                    await linkWithCredential(user, emailCred);
+                } catch (linkErr) {
+                    // If email already exists on another account, we should not overwrite.
+                    console.error("Link error:", linkErr);
+
+                    if (linkErr.code === "auth/email-already-in-use" || linkErr.code === "auth/credential-already-in-use") {
+                        // Keep phone user signed-in, but inform and stop
+                        setBtnLoading(btn, signupDots, false);
+                        simulateProgress(70, 100, 200);
+                        return showMessage(signupMessages, "This email is already used. Please login, or use another email.", "error");
+                    }
+                    // Other errors
+                    setBtnLoading(btn, signupDots, false);
+                    simulateProgress(70, 100, 200);
+                    return showMessage(signupMessages, "Account created but linking email failed. Please contact support.", "warning");
+                }
+
+                simulateProgress(70, 85, 250);
+
+                // Generate unique public ID
+                const userId = await generateUniqueUserId();
+
+                // Save user profile in Firestore
+                const userData = {
+                    uid: user.uid,
+                    userId,
+                    fullName,
+                    email,
+                    phoneE164: phone,
+                    phoneProviderUid: user.providerData?.find(p => p.providerId === 'phone')?.uid || null,
+                    ageGate: { min12: true, confirmedAt: serverTimestamp() },
+                    ipLocation: ipLocationData || null,
+                    createdAt: serverTimestamp(),
+                    lastLogin: serverTimestamp(),
+                    onboardingComplete: false,
+                    products: [],
+                    linksCount: 0,
+                    viewsCount: 0,
+                    ordersCount: 0,
+                    shippedCount: 0,
+                    revenueCount: 0,
+                    transactions: []
+                };
+
+                await setDoc(doc(db, "users", user.uid), userData, { merge: true });
+                await setDoc(doc(db, "users", `userId_${userId}`), { uid: user.uid, createdAt: serverTimestamp() });
+
+                simulateProgress(85, 100, 300);
+                showMessage(signupMessages, "Account created! Redirecting...", "success");
+
+                redirectionActive = true;
+                setTimeout(() => {
+                    toggleLoader(true);
+                    window.location.href = "dashboard.html";
+                }, 900);
+
+            } catch (error) {
+                console.error("Create account error:", error);
+                let msg = "Error creating account. Please try again.";
+                if (error.code === "auth/invalid-verification-code") msg = "Invalid code.";
+                if (error.code === "auth/code-expired") msg = "Code expired. Resend and try again.";
+                if (error.code === "auth/too-many-requests") msg = "Too many attempts. Try again later.";
+                showMessage(signupMessages, msg, "error");
+                simulateProgress(40, 100, 150);
+            } finally {
+                setBtnLoading(btn, signupDots, false);
+            }
+        });
+
+        /*****************************************************************
+         * Email/password login (unchanged, but works after linking)
+         *****************************************************************/
+        document.getElementById("loginUser").addEventListener("click", async function () {
+            const loginBtn = this;
+            setBtnLoading(loginBtn, loginDots, true);
+            simulateProgress(0, 50, 500);
+
+            const email = document.getElementById("loginEmail").value.trim();
+            const password = document.getElementById("loginPassword").value;
+
+            if (!email) {
+                showMessage(loginMessages, "Please enter your email", "error");
+                setBtnLoading(loginBtn, loginDots, false);
+                simulateProgress(50, 100, 100);
+                return;
+            }
+            if (!password) {
+                showMessage(loginMessages, "Please enter your password", "error");
+                setBtnLoading(loginBtn, loginDots, false);
+                simulateProgress(50, 100, 100);
+                return;
+            }
+
+            try {
+                showMessage(loginMessages, "Logging in...", "info");
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                try {
+                    await setDoc(doc(db, "users", user.uid), { lastLogin: serverTimestamp() }, { merge: true });
+                } catch (e) {
+                    console.warn("lastLogin update failed:", e);
+                }
+
+                simulateProgress(50, 100, 300);
+                showMessage(loginMessages, "Login successful! Redirecting...", "success");
+                redirectionActive = true;
+
+                setTimeout(() => {
+                    toggleLoader(true);
+                    window.location.href = "dashboard.html";
+                }, 900);
+
+            } catch (error) {
+                console.error("Login error:", error);
+                let errorMessage = "Login error. Please try again later";
+                if (error.code === 'auth/user-not-found') errorMessage = "No account found with this email address";
+                else if (error.code === 'auth/wrong-password') errorMessage = "Incorrect password. Please try again";
+                else if (error.code === 'auth/invalid-email') errorMessage = "Invalid email format";
+                else if (error.code === 'auth/too-many-requests') errorMessage = "Too many failed attempts. Please try again later";
+                else if (error.code === 'auth/network-request-failed') errorMessage = "Network error. Please check your internet connection";
+
+                showMessage(loginMessages, errorMessage, "error");
+                setBtnLoading(loginBtn, loginDots, false);
+                simulateProgress(50, 100, 100);
+            }
+        });
+
+        /*****************************************************************
+         * Phone/SMS login
+         *****************************************************************/
+        document.getElementById('sendLoginCode').addEventListener('click', async function () {
+            const btn = this;
+            setBtnLoading(btn, loginSmsDots, true);
+            simulateProgress(0, 45, 250);
+
+            const phone = document.getElementById('phoneLoginNumber').value.trim();
+            const phoneCheck = validateE164(phone);
+            if (!phoneCheck.valid) {
+                setBtnLoading(btn, loginSmsDots, false);
+                simulateProgress(45, 100, 150);
+                return showMessage(phoneLoginMessages, phoneCheck.message, "error");
+            }
+
+            try {
+                showMessage(phoneLoginMessages, "Sending code...", "info");
+
+                await resetRecaptcha("login");
+                const verifier = getOrCreateRecaptcha("login");
+
+                loginConfirmationResult = await signInWithPhoneNumber(auth, phone, verifier);
+
+                // show code box + confirm button
+                phoneLoginCodeBox.classList.remove('hidden');
+                document.getElementById('confirmPhoneLogin').classList.remove('hidden');
+
+                codeDigitsLogin.forEach(d => d.value = '');
+                codeDigitsLogin[0].focus();
+
+                startResendTimer(loginSmsTimer, resendLoginSms, 59, (i) => { clearInterval(loginTimerInterval); loginTimerInterval = i; });
+
+                simulateProgress(45, 100, 250);
+                showMessage(phoneLoginMessages, "Code sent.", "success");
+
+            } catch (e) {
+                console.error(e);
+                let msg = "Failed to send SMS. Please try again.";
+                if (e.code === "auth/too-many-requests") msg = "Too many requests. Try later.";
+                if (e.code === "auth/captcha-check-failed") msg = "reCAPTCHA failed. Try again.";
+                showMessage(phoneLoginMessages, msg, "error");
+                simulateProgress(45, 100, 150);
+            } finally {
+                setBtnLoading(btn, loginSmsDots, false);
+            }
+        });
+
+        resendLoginSms.addEventListener('click', async function () {
+            const phone = document.getElementById('phoneLoginNumber').value.trim();
+            try {
+                showMessage(phoneLoginMessages, "Resending...", "info");
+                await resetRecaptcha("login");
+                const verifier = getOrCreateRecaptcha("login");
+                loginConfirmationResult = await signInWithPhoneNumber(auth, phone, verifier);
+
+                startResendTimer(loginSmsTimer, resendLoginSms, 59, (i) => { clearInterval(loginTimerInterval); loginTimerInterval = i; });
+                showMessage(phoneLoginMessages, "Code resent.", "success");
+            } catch (e) {
+                console.error(e);
+                showMessage(phoneLoginMessages, "Failed to resend.", "error");
+            }
+        });
+
+        document.getElementById('confirmPhoneLogin').addEventListener('click', async function () {
+            const btn = this;
+            setBtnLoading(btn, confirmLoginSmsDots, true);
+            simulateProgress(0, 60, 250);
+
+            try {
+                if (!loginConfirmationResult) {
+                    setBtnLoading(btn, confirmLoginSmsDots, false);
+                    simulateProgress(60, 100, 150);
+                    return showMessage(phoneLoginMessages, "Request a code first.", "error");
+                }
+
+                const code = getVerificationCode(codeDigitsLogin);
+                if (code.length !== 6) {
+                    setBtnLoading(btn, confirmLoginSmsDots, false);
+                    simulateProgress(60, 100, 150);
+                    return showMessage(phoneLoginMessages, "Enter the 6-digit code.", "error");
+                }
+
+                showMessage(phoneLoginMessages, "Verifying...", "info");
+                const result = await loginConfirmationResult.confirm(code);
+
+                // update lastLogin if profile exists
+                try {
+                    await setDoc(doc(db, "users", result.user.uid), { lastLogin: serverTimestamp() }, { merge: true });
+                } catch { }
+
+                simulateProgress(60, 100, 250);
+                showMessage(phoneLoginMessages, "Success! Redirecting...", "success");
+                redirectionActive = true;
+
+                setTimeout(() => {
+                    toggleLoader(true);
+                    window.location.href = "dashboard.html";
+                }, 800);
+
+            } catch (e) {
+                console.error(e);
+                let msg = "Invalid code.";
+                if (e.code === "auth/code-expired") msg = "Code expired. Resend.";
+                showMessage(phoneLoginMessages, msg, "error");
+                simulateProgress(60, 100, 150);
+            } finally {
+                setBtnLoading(btn, confirmLoginSmsDots, false);
+            }
+        });
+
+        /*****************************************************************
+         * Reset password via phone: verify SMS -> updatePassword()
+         *****************************************************************/
+        document.getElementById('sendResetSms').addEventListener('click', async function () {
+            const btn = this;
+            setBtnLoading(btn, resetSmsDots, true);
+            simulateProgress(0, 45, 250);
+
+            const phone = document.getElementById('resetPhoneNumber').value.trim();
+            const phoneCheck = validateE164(phone);
+            if (!phoneCheck.valid) {
+                setBtnLoading(btn, resetSmsDots, false);
+                simulateProgress(45, 100, 150);
+                return showMessage(resetPasswordMessages, phoneCheck.message, "error");
+            }
+
+            try {
+                showMessage(resetPasswordMessages, "Sending code...", "info");
+
+                await resetRecaptcha("reset");
+                const verifier = getOrCreateRecaptcha("reset");
+
+                resetConfirmationResult = await signInWithPhoneNumber(auth, phone, verifier);
+
+                resetCodeBox.classList.remove('hidden');
+                confirmResetCodeBtn.classList.remove('hidden');
+
+                codeDigitsReset.forEach(d => d.value = '');
+                codeDigitsReset[0].focus();
+
+                startResendTimer(resetSmsTimer, resendResetSms, 59, (i) => { clearInterval(resetTimerInterval); resetTimerInterval = i; });
+                simulateProgress(45, 100, 250);
+
+                showMessage(resetPasswordMessages, "Code sent.", "success");
+            } catch (e) {
+                console.error(e);
+                let msg = "Failed to send SMS. Please try again.";
+                if (e.code === "auth/too-many-requests") msg = "Too many requests. Try later.";
+                if (e.code === "auth/captcha-check-failed") msg = "reCAPTCHA failed. Try again.";
+                showMessage(resetPasswordMessages, msg, "error");
+                simulateProgress(45, 100, 150);
+            } finally {
+                setBtnLoading(btn, resetSmsDots, false);
+            }
+        });
+
+        resendResetSms.addEventListener('click', async function () {
+            const phone = document.getElementById('resetPhoneNumber').value.trim();
+            try {
+                showMessage(resetPasswordMessages, "Resending...", "info");
+                await resetRecaptcha("reset");
+                const verifier = getOrCreateRecaptcha("reset");
+                resetConfirmationResult = await signInWithPhoneNumber(auth, phone, verifier);
+
+                startResendTimer(resetSmsTimer, resendResetSms, 59, (i) => { clearInterval(resetTimerInterval); resetTimerInterval = i; });
+                showMessage(resetPasswordMessages, "Code resent.", "success");
+            } catch (e) {
+                console.error(e);
+                showMessage(resetPasswordMessages, "Failed to resend.", "error");
+            }
+        });
+
+        confirmResetCodeBtn.addEventListener('click', async function () {
+            const btn = this;
+            setBtnLoading(btn, confirmResetDots, true);
+            simulateProgress(0, 60, 250);
+
+            try {
+                if (!resetConfirmationResult) {
+                    setBtnLoading(btn, confirmResetDots, false);
+                    simulateProgress(60, 100, 150);
+                    return showMessage(resetPasswordMessages, "Request a code first.", "error");
+                }
+
+                const code = getVerificationCode(codeDigitsReset);
+                if (code.length !== 6) {
+                    setBtnLoading(btn, confirmResetDots, false);
+                    simulateProgress(60, 100, 150);
+                    return showMessage(resetPasswordMessages, "Enter the 6-digit code.", "error");
+                }
+
+                showMessage(resetPasswordMessages, "Verifying...", "info");
+                await resetConfirmationResult.confirm(code);
+
+                // now authenticated: show password fields
+                newPasswordBox.classList.remove('hidden');
+                applyNewPasswordBtn.classList.remove('hidden');
+
+                simulateProgress(60, 100, 250);
+                showMessage(resetPasswordMessages, "Verified. Set a new password.", "success");
+
+            } catch (e) {
+                console.error(e);
+                let msg = "Invalid code.";
+                if (e.code === "auth/code-expired") msg = "Code expired. Resend.";
+                showMessage(resetPasswordMessages, msg, "error");
+                simulateProgress(60, 100, 150);
+            } finally {
+                setBtnLoading(btn, confirmResetDots, false);
+            }
+        });
+
+        applyNewPasswordBtn.addEventListener('click', async function () {
+            const btn = this;
+            setBtnLoading(btn, applyNewPasswordDots, true);
+            simulateProgress(0, 60, 250);
+
+            try {
+                const p1 = document.getElementById('newPassword').value;
+                const p2 = document.getElementById('confirmNewPassword').value;
+
+                if (!p1 || p1.length < 6) {
+                    setBtnLoading(btn, applyNewPasswordDots, false);
+                    simulateProgress(60, 100, 150);
+                    return showMessage(resetPasswordMessages, "Password must be at least 6 characters.", "error");
+                }
+                if (p1 !== p2) {
+                    setBtnLoading(btn, applyNewPasswordDots, false);
+                    simulateProgress(60, 100, 150);
+                    return showMessage(resetPasswordMessages, "Passwords don't match.", "error");
+                }
+
+                if (!auth.currentUser) {
+                    setBtnLoading(btn, applyNewPasswordDots, false);
+                    simulateProgress(60, 100, 150);
+                    return showMessage(resetPasswordMessages, "Session expired. Please verify again.", "error");
+                }
+
+                await updatePassword(auth.currentUser, p1);
+
+                simulateProgress(60, 100, 250);
+                showMessage(resetPasswordMessages, "Password updated. Please login.", "success");
+
+                // sign out and go back to login
+                await signOut(auth);
+                redirectionActive = false;
+
+                setTimeout(() => {
+                    switchForm('loginForm');
+                }, 1200);
+
+            } catch (e) {
+                console.error(e);
+                let msg = "Failed to update password. Try again.";
+                if (e.code === "auth/requires-recent-login") msg = "Please verify again (security).";
+                showMessage(resetPasswordMessages, msg, "error");
+                simulateProgress(60, 100, 150);
+            } finally {
+                setBtnLoading(btn, applyNewPasswordDots, false);
+            }
+        });
+
+        /*****************************************************************
+         * Navigation toggles
+         *****************************************************************/
+        document.getElementById("forgotPassword").addEventListener("click", function () {
+            switchForm('resetPasswordForm');
+        });
+
+        document.getElementById("showSignup").addEventListener("click", function () {
+            switchForm('signupForm');
+            goToSignupStep(1);
+            document.getElementById("fullName").focus();
+        });
+
+        document.getElementById("showLogin").addEventListener("click", function () {
+            switchForm('loginForm');
+            document.getElementById("loginEmail").focus();
+        });
+
+        document.getElementById("showPhoneLogin").addEventListener("click", function () {
+            switchForm('phoneLoginForm');
+            document.getElementById("phoneLoginNumber").focus();
+        });
+
+        document.getElementById("backToEmailLogin").addEventListener("click", function () {
+            switchForm('loginForm');
+        });
+
+        document.getElementById("backToLogin").addEventListener("click", function () {
+            switchForm('loginForm');
+        });
+
+        /*****************************************************************
+         * Keyboard Enter navigation (kept light)
+         *****************************************************************/
+        document.getElementById("loginEmail").addEventListener("keypress", function (e) {
+            if (e.key === "Enter") document.getElementById("loginPassword").focus();
+        });
+        document.getElementById("loginPassword").addEventListener("keypress", function (e) {
+            if (e.key === "Enter") document.getElementById("loginUser").click();
+        });
+
+        document.getElementById("confirmPassword").addEventListener("keypress", function (e) {
+            if (e.key === "Enter") document.getElementById("goToStep2").click();
+        });
+
+        /*****************************************************************
+         * Service worker (PWA)
+         *****************************************************************/
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
