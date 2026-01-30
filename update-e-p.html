@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monetizelt</title>
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/monetizelt-b235d.firebasestorage.app/o/1000009017_resized.jpg?alt=media&token=d69084a3-b285-44e4-81a5-f05971314175">
+    <link href="https://fonts.googleapis.com/css2?family=Billabong&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.3em;
+            font-family: 'Billabong', cursive;
+            color: #007BFF;
+        }
+        .logo-genz {
+            border: 1.5px solid #007BFF;
+            padding: 3px 6px;
+            display: inline-block;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+        .faq-button {
+            color: #007BFF;
+            font-size: 0.9em;
+            padding: 3px 6px;
+            border: 1px solid #007BFF;
+            border-radius: 9px;
+            margin-left: 5px;
+            cursor: pointer;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+        }
+        .divider {
+            height: 1px;
+            background-color: #007BFF;
+            width: 100%;
+            margin-top: 0;
+        }
+        .divider-text {
+            text-align: center;
+            color: #333;
+            font-size: 0.9em;
+            margin: 10px 0;
+        }
+        .faq-content {
+            padding: 10px 20px;
+            font-size: 0.85em;
+        }
+        footer {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+            font-size: 0.8em;
+        }
+        
+        /* Styles for email update form */
+        .email-form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 18px;
+            border: 1px solid #007bff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #007bff;
+            font-weight: 500;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #007bff;
+            border-radius: 22px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: green; /* User input text color */
+        }
+        .form-group input::placeholder {
+            color: #888; /* Placeholder text color (gray) */
+        }
+        .form-group input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        .current-email {
+            font-size: 12px;
+            color: #888;
+            margin-top: 3px;
+            margin-left: 10px;
+            font-style: italic;
+        }
+        .update-btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 17px;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .update-btn:hover {
+            background-color: #0056b3;
+        }
+        .status-message {
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .warning {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        .hidden {
+            display: none;
+        }
+        .email-validation {
+            font-size: 12px;
+            color: #dc3545;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a href="auth.html" style="text-decoration: none; color: inherit;">
+        <h1 class="logo-genz" translate="no">Monetizelt</h1>
+    </a>
+    <div style="display: flex; align-items: center;">
+        <div class="faq-button">Update</div>
+    </div>
+</header>
+<div class="divider"></div>
+<div class="divider-text">Update your PayPal email</div>
+<div class="divider"></div>
+<div class="faq-content">
+    <div class="email-form">
+        <div class="warning">
+            <strong>Security Notice:</strong> Make sure to enter a valid PayPal email address. Your payments will be sent to this address. Check it carefully.
+        </div>
+        <div class="form-group">
+            <label for="paypal-email">Enter your PayPal email address:</label>
+            <input type="email" id="paypal-email" name="paypal-email" placeholder="your-email@example.com" required>
+            <div id="current-email" class="current-email hidden">Current: <span id="current-email-value"></span></div>
+            <div id="email-validation" class="email-validation"></div>
+        </div>
+        <div class="form-group">
+            <label for="confirm-paypal-email">Confirm your PayPal email address:</label>
+            <input type="email" id="confirm-paypal-email" name="confirm-paypal-email" placeholder="Enter your email address again" required>
+            <div id="confirm-validation" class="email-validation"></div>
+        </div>
+        <button class="update-btn" id="update-button">Confirm</button>
+        <div id="status-message" class="status-message hidden"></div>
+    </div>
+</div>
+
+<script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAF4I7E6-_z8y_8n8P35zyKbh9WOEtIzMQ",
+        authDomain: "monetizelt-b235d.firebaseapp.com",
+        databaseURL: "https://monetizelt-b235d-default-rtdb.firebaseio.com",
+        projectId: "monetizelt-b235d",
+        storageBucket: "monetizelt-b235d.firebasestorage.app",
+        messagingSenderId: "1040211471009",
+        appId: "1:1040211471009:web:321898c7bdca6258ce9ee0",
+        measurementId: "G-5NWKR1E9VY"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    // Elements
+    const paypalEmailInput = document.getElementById('paypal-email');
+    const confirmPaypalEmailInput = document.getElementById('confirm-paypal-email');
+    const updateButton = document.getElementById('update-button');
+    const statusMessage = document.getElementById('status-message');
+    const emailValidation = document.getElementById('email-validation');
+    const confirmValidation = document.getElementById('confirm-validation');
+    const currentEmailDiv = document.getElementById('current-email');
+    const currentEmailValue = document.getElementById('current-email-value');
+    
+    // Variable to store current user's email
+    let currentUserEmail = "";
+
+    // Check if user is logged in and get their current email
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            try {
+                const userDoc = await getDoc(doc(db, "users", user.uid));
+                if (userDoc.exists() && userDoc.data().paypalEmail) {
+                    currentUserEmail = userDoc.data().paypalEmail;
+                    
+                    // Display current email
+                    currentEmailValue.textContent = currentUserEmail;
+                    currentEmailDiv.classList.remove('hidden');
+                    
+                    // Set placeholder with lighter color
+                    paypalEmailInput.placeholder = "Enter new email address";
+                }
+            } catch (error) {
+                console.error("Error getting user data:", error);
+            }
+        } else {
+            // Redirect to login page if not logged in
+            window.location.href = 'login.html';
+        }
+    });
+
+    // Function to validate email format
+    function isValidEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    // Function to show status message
+    function showMessage(message, isSuccess = true) {
+        statusMessage.textContent = message;
+        statusMessage.classList.remove('hidden', 'success', 'error');
+        statusMessage.classList.add(isSuccess ? 'success' : 'error');
+    }
+
+    // Validate inputs and enable/disable update button
+    function validateInputs() {
+        const email = paypalEmailInput.value.trim();
+        const confirmEmail = confirmPaypalEmailInput.value.trim();
+        
+        // Check email format
+        if (email && !isValidEmail(email)) {
+            emailValidation.textContent = "Please enter a valid email address";
+            emailValidation.style.display = "block";
+            return false;
+        } else {
+            emailValidation.style.display = "none";
+        }
+        
+        // Check if emails match
+        if (confirmEmail && email !== confirmEmail) {
+            confirmValidation.textContent = "Email addresses do not match";
+            confirmValidation.style.display = "block";
+            return false;
+        } else {
+            confirmValidation.style.display = "none";
+        }
+        
+        return true;
+    }
+
+    // Update PayPal email function
+    async function updatePaypalEmail() {
+        const newEmail = paypalEmailInput.value.trim();
+        
+        if (!validateInputs()) {
+            showMessage("Please correct the errors in the form", false);
+            return;
+        }
+        
+        // Check if the new email is the same as the current one
+        if (newEmail === currentUserEmail) {
+            showMessage("No changes made. You entered the same email address as before.", false);
+            return;
+        }
+
+        try {
+            // Get current user
+            const user = auth.currentUser;
+            if (user) {
+                // Update the user's PayPal email in Firestore
+                await updateDoc(doc(db, "users", user.uid), {
+                    paypalEmail: newEmail
+                });
+                
+                showMessage("Email successfully updated", true);
+                
+                // Update the displayed current email
+                currentUserEmail = newEmail;
+                currentEmailValue.textContent = newEmail;
+                
+                // Clear input fields
+                paypalEmailInput.value = '';
+                confirmPaypalEmailInput.value = '';
+                
+                // Redirect to dashboard after 3 seconds
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 3000);
+            } else {
+                showMessage("User not authenticated. Please log in again.", false);
+            }
+        } catch (error) {
+            showMessage("Failed to update email: " + error.message, false);
+        }
+    }
+
+    // Event listeners
+    paypalEmailInput.addEventListener('input', validateInputs);
+    confirmPaypalEmailInput.addEventListener('input', validateInputs);
+    updateButton.addEventListener('click', updatePaypalEmail);
+</script>
+
+</body>
+</html>
